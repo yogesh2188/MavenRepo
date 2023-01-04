@@ -2,13 +2,13 @@ pipeline {
     agent any 
     
     tools {
-        maven 'Maven3'
+        maven 'maven'
     }
     
     stages {
         stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/RutujaPawal/test1']]])
+                checkout scmGit(branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/yogesh2188/MavenRepo.git']])
             }
         }      
         stage ('Build') {
